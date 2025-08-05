@@ -7,8 +7,8 @@
       <form class="form-inline">
         <div class="form-group">
           <label for="connect">WebSocket connection:</label>
-          <button id="connect" class="btn btn-default" type="submit">Connect</button>
-          <button id="disconnect" class="btn btn-default" type="submit">Disconnect
+          <button id="connect" type="button" class="btn btn-default" (click)="connect()">Connect</button>
+          <button id="disconnect" type="button" class="btn btn-default" (click)="disconnect()">Disconnect
           </button>
         </div>
       </form>
@@ -17,9 +17,9 @@
       <form class="form-inline">
         <div class="form-group">
           <label for="name">What is your name?</label>
-          <input type="text" id="name" class="form-control" placeholder="Your name here...">
+          <input type="text" id="name" class="form-control" placeholder="Your name here..." #nameInput>
         </div>
-        <button id="send" class="btn btn-default" type="submit">Send</button>
+        <button id="send" type="button" class="btn btn-default" (click)="send(nameInput)">Send</button>
       </form>
     </div>
   </div>
@@ -32,6 +32,9 @@
         </tr>
         </thead>
         <tbody id="greetings">
+          <tr *ngFor="let greeting of greetings">
+            <td>{{ greeting }}</td>
+          </tr>
         </tbody>
       </table>
     </div>
